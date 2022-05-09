@@ -29,13 +29,23 @@ namespace Snake_et_Laders_Anime
         /// </summary>
         private void InitializeComponent()
         {
+            this.CmBxNbJoueur = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
+            // 
+            // CmBxNbJoueur
+            // 
+            this.CmBxNbJoueur.FormattingEnabled = true;
+            this.CmBxNbJoueur.Location = new System.Drawing.Point(227, 96);
+            this.CmBxNbJoueur.Name = "CmBxNbJoueur";
+            this.CmBxNbJoueur.Size = new System.Drawing.Size(121, 21);
+            this.CmBxNbJoueur.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CmBxNbJoueur);
             this.Name = "Form1";
             this.Text = "Snake & Lader";
             this.ResumeLayout(false);
@@ -43,6 +53,8 @@ namespace Snake_et_Laders_Anime
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox CmBxNbJoueur;
     }
 }
 
