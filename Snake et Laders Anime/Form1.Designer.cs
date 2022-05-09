@@ -31,6 +31,7 @@ namespace Snake_et_Laders_Anime
         {
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.buttonmescouilles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -52,12 +53,21 @@ namespace Snake_et_Laders_Anime
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // buttonmescouilles
+            // 
+            this.buttonmescouilles.Location = new System.Drawing.Point(518, 225);
+            this.buttonmescouilles.Name = "buttonmescouilles";
+            this.buttonmescouilles.Size = new System.Drawing.Size(210, 173);
+            this.buttonmescouilles.TabIndex = 2;
+            this.buttonmescouilles.Text = "button2";
+            this.buttonmescouilles.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-
+            this.Controls.Add(this.buttonmescouilles);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -71,6 +81,7 @@ namespace Snake_et_Laders_Anime
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button buttonmescouilles;
     }
 }
 
