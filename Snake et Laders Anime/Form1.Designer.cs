@@ -96,7 +96,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx9
             // 
-            this.PBx9.Image = global::Snake_et_Laders_Anime.Properties.Resources.pionJaune_removebg_preview;
+            this.PBx9.Image = global::Snake_et_Laders_Anime.Properties.Resources.player4;
             this.PBx9.Location = new System.Drawing.Point(465, 265);
             this.PBx9.Name = "PBx9";
             this.PBx9.Size = new System.Drawing.Size(50, 55);
@@ -106,7 +106,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx8
             // 
-            this.PBx8.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionRouge_removebg_preview;
+            this.PBx8.Image = global::Snake_et_Laders_Anime.Properties.Resources.player3;
             this.PBx8.Location = new System.Drawing.Point(384, 265);
             this.PBx8.Name = "PBx8";
             this.PBx8.Size = new System.Drawing.Size(50, 55);
@@ -116,7 +116,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx7
             // 
-            this.PBx7.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionBleu_removebg_preview;
+            this.PBx7.Image = global::Snake_et_Laders_Anime.Properties.Resources.player2;
             this.PBx7.Location = new System.Drawing.Point(309, 265);
             this.PBx7.Name = "PBx7";
             this.PBx7.Size = new System.Drawing.Size(50, 55);
@@ -126,7 +126,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx6
             // 
-            this.PBx6.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionVert_removebg_preview;
+            this.PBx6.Image = global::Snake_et_Laders_Anime.Properties.Resources.player1;
             this.PBx6.Location = new System.Drawing.Point(238, 265);
             this.PBx6.Name = "PBx6";
             this.PBx6.Size = new System.Drawing.Size(50, 55);
@@ -136,7 +136,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx5
             // 
-            this.PBx5.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionRouge_removebg_preview;
+            this.PBx5.Image = global::Snake_et_Laders_Anime.Properties.Resources.player3;
             this.PBx5.Location = new System.Drawing.Point(384, 165);
             this.PBx5.Name = "PBx5";
             this.PBx5.Size = new System.Drawing.Size(50, 55);
@@ -146,7 +146,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx4
             // 
-            this.PBx4.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionBleu_removebg_preview;
+            this.PBx4.Image = global::Snake_et_Laders_Anime.Properties.Resources.player2;
             this.PBx4.Location = new System.Drawing.Point(309, 165);
             this.PBx4.Name = "PBx4";
             this.PBx4.Size = new System.Drawing.Size(50, 55);
@@ -157,7 +157,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx3
             // 
-            this.PBx3.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionVert_removebg_preview;
+            this.PBx3.Image = global::Snake_et_Laders_Anime.Properties.Resources.player1;
             this.PBx3.Location = new System.Drawing.Point(238, 165);
             this.PBx3.Name = "PBx3";
             this.PBx3.Size = new System.Drawing.Size(50, 55);
@@ -167,7 +167,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx2
             // 
-            this.PBx2.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionBleu_removebg_preview;
+            this.PBx2.Image = global::Snake_et_Laders_Anime.Properties.Resources.player2;
             this.PBx2.Location = new System.Drawing.Point(309, 76);
             this.PBx2.Name = "PBx2";
             this.PBx2.Size = new System.Drawing.Size(50, 55);
@@ -177,7 +177,7 @@ namespace Snake_et_Laders_Anime
             // 
             // PBx1
             // 
-            this.PBx1.Image = global::Snake_et_Laders_Anime.Properties.Resources.PionVert_removebg_preview;
+            this.PBx1.Image = global::Snake_et_Laders_Anime.Properties.Resources.player1;
             this.PBx1.Location = new System.Drawing.Point(238, 76);
             this.PBx1.Name = "PBx1";
             this.PBx1.Size = new System.Drawing.Size(50, 55);

@@ -32,7 +32,8 @@ namespace Snake_et_Laders_Anime
             //GameBoard form2 = new GameBoard();
             //form2.ShowDialog();
             this.Hide();
-            var form2 = new GameBoard();
+            var form2 = new GameBoard(
+                RBtn2Joueurs.Checked ? 2 : RBtn3Joueurs.Checked ? 3 : 4);
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }

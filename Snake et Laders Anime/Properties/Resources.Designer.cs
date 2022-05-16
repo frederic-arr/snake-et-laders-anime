@@ -63,9 +63,9 @@ namespace Snake_et_Laders_Anime.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PionBleu_removebg_preview {
+        internal static System.Drawing.Bitmap player1 {
             get {
-                object obj = ResourceManager.GetObject("PionBleu-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("player1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Snake_et_Laders_Anime.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pionJaune_removebg_preview {
+        internal static System.Drawing.Bitmap player2 {
             get {
-                object obj = ResourceManager.GetObject("pionJaune-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("player2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Snake_et_Laders_Anime.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PionRouge_removebg_preview {
+        internal static System.Drawing.Bitmap player3 {
             get {
-                object obj = ResourceManager.GetObject("PionRouge-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("player3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Snake_et_Laders_Anime.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PionVert_removebg_preview {
+        internal static System.Drawing.Bitmap player4 {
             get {
-                object obj = ResourceManager.GetObject("PionVert-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("player4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
