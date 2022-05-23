@@ -16,6 +16,7 @@ namespace Snake_et_Laders_Anime
         public int size;
         public int playerId;
         public GameBoard gameBoard;
+        public PictureBox pictureBox = new PictureBox();
         public Player(GameBoard _gameBoard, int _playerId, int _size)
         {
             size = _size;
@@ -23,7 +24,41 @@ namespace Snake_et_Laders_Anime
             gameBoard = _gameBoard;
 
 
-            PictureBox pictureBox = new PictureBox();
+            pictureBox.Size = new Size(size / 2, size / 2);
+            pictureBox.TabIndex = 1;
+
+            Image image;
+            switch (playerId)
+            {
+                case 0:
+                    image = Properties.Resources.player1;
+                    break;
+                case 1:
+                    image = Properties.Resources.player2;
+                    break;
+                case 2:
+                    image = Properties.Resources.player3;
+                    break;
+                default:
+                    image = Properties.Resources.player4;
+                    break;
+            }
+
+            pictureBox.Image = image;
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.TabIndex = 2;
+            pictureBox.TabStop = false;
+            pictureBox.BackColor = Color.Transparent;
+
+            updatePos(0, 0);
+
+            gameBoard.Controls.Add(pictureBox);
+        }
+
+        public void updatePos(int _col, int _ln)
+        {
+            col = _col;
+            ln = _ln;
 
             // If we are on the start cell, we can have 4 players so we put one in each corner
             if (col == 0 && ln == 0)
@@ -32,42 +67,11 @@ namespace Snake_et_Laders_Anime
                     col * size + (size / 2) * (playerId % 2),
                     512 - (ln * size) + (size / 2) * (int)Math.Floor((decimal)playerId / (decimal)2)
                 );
-            } else
+            }
+            else
             {
                 pictureBox.Location = new Point(col * size + (size / 2), 512 - (ln * size) + (size / 2));
             };
-
-            ResourceManager rm = new ResourceManager("rmc", typeof(Image).Assembly);
-            pictureBox.Size = new Size(size / 2, size / 2);
-            pictureBox.TabIndex = 1;
-            //pictureBox.Image = Snake_et_Laders_Anime.Properties.Resources
-            //pictureBox.Image = (Image)rm.GetObject($"player{playerId + 1}");
-
-            //Bitmap bitmap= new Bitmap(System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream($"Snake_et_Laders_Anime.Properties.Resources.player{playerId + 1}"));
-
-            Image image;
-            switch (playerId)
-            {
-                case 0:
-                    image = Snake_et_Laders_Anime.Properties.Resources.player1;
-                    break;
-                case 1:
-                    image = Snake_et_Laders_Anime.Properties.Resources.player2;
-                    break;
-                case 2:
-                    image = Snake_et_Laders_Anime.Properties.Resources.player3;
-                    break;
-                default:
-                    image = Snake_et_Laders_Anime.Properties.Resources.player4;
-                    break;
-            }
-
-            pictureBox.Image = image;
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.TabIndex = 1;
-            pictureBox.TabStop = false;
-
-            gameBoard.Controls.Add(pictureBox);
         }
     }
 }
