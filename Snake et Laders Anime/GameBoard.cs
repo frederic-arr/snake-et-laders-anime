@@ -15,12 +15,18 @@ namespace Snake_et_Laders_Anime
         Random rnd = new Random();
 
         int playerCount = 0;
-        int round = 0;
-        List<Player> players = new List<Player>();
-        List<(int, int)> cells_by_id = new List<(int, int)>();
+        int round = 0; // Round count
+        List<Player> players = new List<Player>(); // List of players
+        List<(int, int)> cells_by_id = new List<(int, int)>(); // List of cells
 
+        // Move table
         Dictionary<int, int> moves = new Dictionary<int, int>();
+
+        // Question cases
         int[] specials = { 2, 3, 5, 7, 11, 13, 17, 19, 23 };
+
+        // List of questions
+        // See the README.md to get instructions about generating them from a Spreadsheet
         List<string[]> questions = new List<string[]>
         {
              new string[] { "Fairy tail", "Combien y a-t-il de chasseur de dragon?", "2", "4", "7", "10", "20" },
@@ -64,12 +70,14 @@ namespace Snake_et_Laders_Anime
 
         public GameBoard(int _playerCount)
         {
-            moves.Add(2, 9);
+            // Add our move cases (tentacles and sabers)
+            moves.Add(2, 9); 
             moves.Add(11, 1);
             moves.Add(15, 4);
             moves.Add(23, 26);
             moves.Add(28, 13);
 
+            // Add our players
             playerCount = _playerCount;
             for (int playerId = 0; playerId < _playerCount; playerId++)
             {
@@ -77,6 +85,7 @@ namespace Snake_et_Laders_Anime
                 players.Add(player);
             }
 
+            // Add our cells
             for (int _ln = 0; _ln < LINE_COUNT; _ln++)
             {
                 for (int _col = 0; _col < COLUMN_COUNT; _col++)
@@ -88,6 +97,10 @@ namespace Snake_et_Laders_Anime
             InitializeComponent();
         }
 
+        /*
+         * Quick and dirty way to transform a cell position to an id
+         * You could probably do math but whatever
+         */
         private int posToInt(int _col, int _ln)
         {
             string s = $"{_ln}-{_col}";
@@ -128,6 +141,10 @@ namespace Snake_et_Laders_Anime
             return -1;
         }
 
+        /*
+         * Quick and dirty way to transform a cell id to a position
+         * You could probably do math but whatever
+         */
         private (int, int) intToPos(int i)
         {
             switch (i)
@@ -169,71 +186,91 @@ namespace Snake_et_Laders_Anime
 
         private void dice_Click(object sender, EventArgs e)
         {
-            int move = rnd.Next(1, 6);
-            int currentPlayerId = round % playerCount;
+            int move = rnd.Next(1, 6); // Get dice throw
+            int currentPlayerId = round % playerCount; // Rotate player
             lbl.Text = $"Joueur #{currentPlayerId + 1} vous avez tiré {move}";
             Player currentPlayer = players[currentPlayerId];
-            int cell = posToInt(currentPlayer.col, currentPlayer.ln);
+            int cell = posToInt(currentPlayer.col, currentPlayer.ln); // Transforms player position to cell id for easy arithmetics
             int newCell = cell + move;
 
             List<int> taken_cells = new List<int>();
+
+            // Push every cell that contains a player into the taken cells
             foreach (Player player in players)
             {
                 int pce = posToInt(player.col, player.ln);
                 taken_cells.Add(pce);
             }
 
+            // Check if the new cell is taken or is a special cell and if so, calculates the next action to take
             while (specials.Contains(newCell) || moves.ContainsKey(newCell) || taken_cells.Contains(newCell) || newCell < 0 || newCell > 29)
             {
+                // Preparing the question; may not always be needed
                 int qind = rnd.Next(0, questions.Count() - 1);
                 string[] question = questions[qind];
-                try
 
+                try
                 {
+                    // Current cell is taken
                     if (taken_cells.Contains(newCell))
                     {
                         newCell += 1;
                     }
+                    // The cell is a move and a question at the same 
                     else if (specials.Contains(newCell) && moves.ContainsKey(newCell))
                     {
+                        // if the player is right, he goes forward
                         if (new Quiz(question).ShowDialog() == DialogResult.Yes)
                         {
+                            // If the move would make him go further, move him
                             if (moves[newCell] > newCell) newCell = moves[newCell];
+                            // Otherwise move him by 3 cells
                             else newCell += 3;
                         }
                         else
                         {
+                            // If the move would make him go back, move him
                             if (moves[newCell] < newCell) newCell = moves[newCell];
+                            // Otherwise move him by 3 cells
                             else newCell -= 3;
                         };
                         questions.RemoveAt(qind);
                     }
+                    // The cell is only a question
                     else if (specials.Contains(newCell))
                     {
+                        // Good => move by 3 forward, Bad => move by 3 backward
                         int mv = new Quiz(question).ShowDialog() == DialogResult.Yes ? 3 : -3;
                         questions.RemoveAt(qind);
                         newCell = Math.Max(newCell + mv, 0);
                     }
                     else
                     {
+                        // Move to the target
                         newCell = moves[newCell];
                     }
-                } catch (Exception)
+                }
+                catch (Exception)
                 {
                 }
 
+                // if we overflow the board, go back from the last cell on the board by the number of overflowed cells
                 if (newCell > 29)
                 {
                     newCell = 29 + (29 - newCell);
                 }
 
+                // Make sure we don't underflow and update the cell
                 newCell = Math.Max(newCell, 0);
             }
 
+
+            // Update the pos
             (int newLn, int newCol) = intToPos(Math.Max(newCell, 0));
             currentPlayer.updatePos(newCol, newLn);
             round += 1;
 
+            // If we're ont the last cell, we won
             if (newCell == 29)
             {
                 lbl.Text = $"Joueur #{currentPlayerId + 1} a gagné!";
