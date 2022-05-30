@@ -185,7 +185,8 @@ namespace Snake_et_Laders_Anime
 
             while (specials.Contains(newCell) || moves.ContainsKey(newCell) || taken_cells.Contains(newCell) || newCell < 0 || newCell > 29)
             {
-                string[] question = questions[rnd.Next(0, questions.Count() - 1)];
+                int qind = rnd.Next(0, questions.Count() - 1);
+                string[] question = questions[qind];
                 try
 
                 {
@@ -204,11 +205,13 @@ namespace Snake_et_Laders_Anime
                         {
                             if (moves[newCell] < newCell) newCell = moves[newCell];
                             else newCell -= 3;
-                        }
+                        };
+                        questions.RemoveAt(qind);
                     }
                     else if (specials.Contains(newCell))
                     {
                         int mv = new Quiz(question).ShowDialog() == DialogResult.Yes ? 3 : -3;
+                        questions.RemoveAt(qind);
                         newCell = Math.Max(newCell + mv, 0);
                     }
                     else
